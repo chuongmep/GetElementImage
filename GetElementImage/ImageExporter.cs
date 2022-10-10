@@ -183,7 +183,9 @@ namespace GetElementImage
 
       doc.Regenerate();
 
-      string dir = "C:/tmp";
+      string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"Test");
+      DirectoryInfo directoryInfo = new DirectoryInfo(dir);
+      if(!directoryInfo.Exists) directoryInfo.Create();
       string fn = e.Id.IntegerValue.ToString();
       string filepath = $"{dir}/{fn}.png";
 
